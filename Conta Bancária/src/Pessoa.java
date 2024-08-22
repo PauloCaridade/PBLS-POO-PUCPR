@@ -74,4 +74,11 @@ public class Pessoa {
         return "nome: " + this.getNome() + "\n" + "idade: " + this.getIdade() + "\n" + "Gênero: " + this.getGenero() + "\n" + "CPF: " + this.getCpf();
     }
 
+    public void alterarDadosPessoa(String nome, int idade, String genero, String cpf){
+        this.setNome(nome);
+        this.setIdade(idade);
+        this.setGenero(genero);
+        this.setCpf(cpf);
+    }
+
 }
