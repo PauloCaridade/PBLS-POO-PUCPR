@@ -36,7 +36,10 @@ public class Main {
                         System.out.println("VALOR DO SAQUE: " + cliente.saque(valorSaque));
                         break;
                     }
-                    System.out.print("Não existem clientes cadastrados!!!");
+                    else{
+                        System.out.print("NÃO EXISTEM CLIENTES CADASTRADOS.");
+                    }
+
                     break;
                 case 3:
                     if (cliente != null) {
@@ -45,13 +48,18 @@ public class Main {
                         cliente.deposito(valorDeposito);
                         break;
                     }
-                    System.out.print("Não existem contas cadastradas!!!");
+                    else{
+                        System.out.print("NÃO EXISTEM CLIENTES CADASTRADOS.");
+                    }
+
                     break;
                 case 4:
                     if(cliente != null) {
                         cliente.extrato();
                     }
-                    System.out.println("NÃO EXISTEM CLIENTES CADASTRADOS.");
+                    else{
+                        System.out.print("NÃO EXISTEM CLIENTES CADASTRADOS.");
+                    }
                     break;
 
                 case 5:
