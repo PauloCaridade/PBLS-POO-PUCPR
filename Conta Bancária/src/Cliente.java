@@ -52,11 +52,6 @@ public class Cliente {
         this.conta.deposito(valor);
     }
 
-
-    public void saldo(double valor){
-        conta.saque(valor);
-    }
-
     public void extrato(){
         conta.extratoConta();
     }
