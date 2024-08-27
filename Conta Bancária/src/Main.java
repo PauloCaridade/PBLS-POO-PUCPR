@@ -5,8 +5,7 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        Pessoa pessoa = null;
-        Conta conta = null;
+        Cliente cliente = null;
 
         while (true) {
             System.out.println();
@@ -25,38 +24,38 @@ public class Main {
                     String genero = sc.nextLine();
                     System.out.print("insira o CPF: ");
                     String cpf = sc.nextLine();
-                    pessoa = new Pessoa(nome, idade, genero, cpf);
-                    conta = new Conta(pessoa, 0);
+                    cliente = new Cliente(nome, idade, genero, cpf);
                     System.out.println();
-                    System.out.println(pessoa.dadosPessoa());
+                    System.out.println(cliente.dadosPessoa());
                     System.out.println("Conta criada com sucesso!");
                     break;
                 case 2:
-                    if (conta != null) {
+                    if (cliente != null) {
                         System.out.print("Insira o valor de saque: ");
                         double valorSaque = sc.nextDouble();
-                        conta.saque(valorSaque);
+                        System.out.println("VALOR DO SAQUE: " + cliente.saque(valorSaque));
                         break;
                     }
                     System.out.print("Não existem clientes cadastrados!!!");
                     break;
                 case 3:
-                    if (conta != null) {
+                    if (cliente != null) {
                         System.out.print("Insira o valor de deposito: ");
                         double valorDeposito = sc.nextDouble();
-                        conta.setSaldo(valorDeposito);
+                        cliente.deposito(valorDeposito);
                         break;
                     }
                     System.out.print("Não existem contas cadastradas!!!");
                     break;
                 case 4:
-                    if(conta != null) {
-                        conta.extratoConta();
+                    if(cliente != null) {
+                        cliente.extrato();
                     }
+                    System.out.println("NÃO EXISTEM CLIENTES CADASTRADOS.");
                     break;
 
                 case 5:
-                    if(conta != null) {
+                    if(cliente != null) {
                         System.out.print("Nome: ");
                         sc.nextLine();
                         String novoNome = sc.nextLine();
@@ -67,7 +66,8 @@ public class Main {
                         String novoGenero = sc.nextLine();
                         System.out.print("CPF: ");
                         String novoCpf = sc.nextLine();
-                        conta.alterarDadosCliente(novoNome,novaIdade,novoGenero,novoCpf);
+                        cliente.alterarDadosPessoa(novoNome, novaIdade, novoGenero, novoCpf);
+                        System.out.println(cliente.dadosPessoa());
                         break;
                     }
                     else{

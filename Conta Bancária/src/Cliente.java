@@ -1,20 +1,22 @@
 import java.util.Scanner;
 
-public class Pessoa {
+public class Cliente {
 
     private String nome;
     private int idade;
     private String genero;
     private String cpf;
+    private Conta conta;
 
-    public Pessoa(String nome, int idade, String genero, String cpf) {
+    public Cliente(String nome, int idade, String genero, String cpf) {
         this.setNome(nome);
         this.setIdade(idade);
         this.setGenero(genero);
         this.setCpf(cpf);
+        this.conta = new Conta();
     }
 
-    public Pessoa() {
+    public Cliente() {
 
     }
 
@@ -34,8 +36,29 @@ public class Pessoa {
         return this.cpf;
     }
 
+    public Conta getConta() {
+        return this.conta;
+    }
+
     public void setNome(String nome) {
         this.nome = nome.toUpperCase();
+    }
+
+    public double saque(double valor) {
+        return this.conta.saque(valor);
+    }
+
+    public void deposito(double valor) {
+        this.conta.deposito(valor);
+    }
+
+
+    public void saldo(double valor){
+        conta.saque(valor);
+    }
+
+    public void extrato(){
+        conta.extratoConta();
     }
 
     public void setIdade(int idade) {

@@ -1,34 +1,30 @@
 public class Conta {
 
-    private Pessoa cliente;
     private double saldo;
 
-    public Conta(Pessoa cliente, double saldo) {
-        this.cliente = cliente;
+    public Conta(double saldo) {
         this.saldo = saldo;
     }
 
-    public Conta(Pessoa cliente) {
-        this.cliente = cliente;
-        this.saldo = saldo;
+    public Conta() {
+
     }
 
-    public void saque(double valor){
+    public double saque(double valor){
         if (valor > this.saldo){
             System.out.println("Saldo insuficiente.");
+            return 0;
         }
         else {
             this.saldo -= valor;
             System.out.println("Saque realizado com sucesso.");
+            return valor;
         }
     }
 
-    public double getSaldo(){
-        return this.saldo;
-    }
-    public void setSaldo(double saldo){
-        if (saldo > 0){
-            this.saldo = saldo;
+    public void deposito(double valor){
+        if (valor > 0){
+            this.saldo = valor;
             System.out.println("Deposito realizado com sucesso.");
         }
         else{
@@ -38,11 +34,7 @@ public class Conta {
     }
 
     public void extratoConta(){
-        System.out.println("Cliente: " + this.cliente.getNome() + " " + "\nSaldo: R$ " + this.saldo);
-    }
-
-    public void alterarDadosCliente(String nome,int idade,String genero,String cpf){
-        this.cliente.alterarDadosPessoa(nome, idade, genero, cpf);
+        System.out.println("EXTRATO: R$ " + this.saldo);
     }
 
 }
