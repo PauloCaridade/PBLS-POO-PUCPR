@@ -8,7 +8,7 @@ public class Aluno {
     private int anoIngresso;
     private String email;
 
-    public Aluno(String nome, int idade, String matricula, int anoIngresso, String email) {
+    public Aluno(String nome, int idade,int anoIngresso, String email) {
         this.setNome(nome);
         this.setIdade(idade);
         this.setAnoIngresso(anoIngresso);

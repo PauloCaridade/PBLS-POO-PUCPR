@@ -5,6 +5,9 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
+        Professor professor = null;
+        Aluno aluno = null;
+        Disciplina disciplina = null;
         int opcao;
 
         while(true){
@@ -13,6 +16,8 @@ public class Main {
                     "5. Mostrar Informação Dos Alunos Por Disciplina\n6. Alterar Info do Aluno\n7. Sair\n\nOpção: ");
             opcao = sc.nextInt();
 
+            switch(opcao){
+                case 1:
 
             }
         }

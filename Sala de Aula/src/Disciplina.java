@@ -4,15 +4,18 @@ import java.util.Random;
 public class Disciplina {
 
     private String nome;
-    private int codigoDisciplina;
-    int creditos;
+    private final int codigoDisciplina;
+    private int creditos;
+    private int vagas;
     private Professor professor;
     ArrayList<Aluno> alunos = new ArrayList<Aluno>();
 
-    public Disciplina(String nome, Professor professor, Aluno aluno) {
+    public Disciplina(String nome, Professor professor, int creditos, int vagas) {
         this.setNome(nome);
         this.setProfessor(professor);
-        this.alunos.add(aluno);
+        this.setCreditos(creditos);
+        this.setVags(vagas);
+        this.codigoDisciplina = gerarCodigoDisciplina();
     }
 
     private int gerarCodigoDisciplina() {
@@ -36,6 +39,10 @@ public class Disciplina {
         return this.professor;
     }
 
+    public int getVagas(){
+        return this.vagas;
+    }
+
     public ArrayList<Aluno> getAlunos(){
         return this.alunos;
     }
@@ -57,8 +64,21 @@ public class Disciplina {
         this.professor = professor;
     }
 
+    public void setVags(int vagas){
+        this.vagas = vagas;
+    }
+
     public void setCreditos(int creditos){
         this.creditos = creditos;
+    }
+
+    public void cadastrarAluno(Aluno aluno){
+        if(aluno != null){
+            this.alunos.add(aluno);
+        }
+        else{
+            System.out.println("ALUNO INEXISTENTE!!!");
+        }
     }
 
 }
