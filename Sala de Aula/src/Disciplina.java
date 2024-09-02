@@ -14,7 +14,7 @@ public class Disciplina {
         this.setNome(nome);
         this.setProfessor(professor);
         this.setCreditos(creditos);
-        this.setVags(vagas);
+        this.setVagas(vagas);
         this.codigoDisciplina = gerarCodigoDisciplina();
     }
 
@@ -49,12 +49,19 @@ public class Disciplina {
 
     public Aluno getAluno(String nome){
         for(Aluno aluno : this.alunos){
-            if(aluno.getNome().equals(nome.toLowerCase())){
+            if(aluno.getNome().equals(nome.toUpperCase())){
                 return aluno;
             }
         }
         return null;
     }
+
+    @Override
+    public String toString(){
+        return "Nome da Disciplina: " + this.nome + " " + "Código: " + this.codigoDisciplina + " " +
+                "Número de Créditos: " + this.creditos + " " + "Vagas: " + this.vagas + "Professor: " + this.professor;
+    }
+
 
     public void setNome(String nome){
         this.nome = nome;
@@ -64,7 +71,7 @@ public class Disciplina {
         this.professor = professor;
     }
 
-    public void setVags(int vagas){
+    public void setVagas(int vagas){
         this.vagas = vagas;
     }
 

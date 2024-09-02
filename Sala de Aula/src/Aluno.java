@@ -4,7 +4,7 @@ public class Aluno {
 
     private String nome;
     private int idade;
-    private int matricula;
+    private  final int matricula;
     private int anoIngresso;
     private String email;
 
