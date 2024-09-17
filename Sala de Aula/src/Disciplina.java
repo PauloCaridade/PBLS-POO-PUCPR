@@ -43,8 +43,10 @@ public class Disciplina {
         return this.vagas;
     }
 
-    public ArrayList<Aluno> getAlunos(){
-        return this.alunos;
+    public void mostrarAlunos(){
+        for(Aluno aluno : alunos){
+            System.out.println(aluno);
+        }
     }
 
     public Aluno getAluno(String nome){
@@ -55,6 +57,7 @@ public class Disciplina {
         }
         return null;
     }
+
 
     @Override
     public String toString(){

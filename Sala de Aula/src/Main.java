@@ -6,16 +6,24 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        Disciplina disciplina = null;
+        Professor professor1 = new Professor("Pedro",35,"Direito");
+        Professor professor2 = new Professor("João",45,"Engenharia Civil");
+        Professor professor3 = new Professor("Maria",55,"Ciência da Computação");
+        Disciplina disciplina1 = new Disciplina("DIREITO",professor1,4,30);
+        Disciplina disciplina2 = new Disciplina("ENGENHARIA CIVIL",professor2,4,40);
+        Disciplina disciplina3 = new Disciplina("CIÊNCIA DA COMPUTAÇÃO",professor3,4,35);
         ArrayList<Disciplina> disciplinas = new ArrayList<>();
-        Professor professor = null;
+        disciplinas.add(disciplina1);
+        disciplinas.add(disciplina2);
+        disciplinas.add(disciplina3);
         Aluno aluno = null;
+
         int opcao;
 
         while(true){
             System.out.println("\n################## SALA DE AULA ##################\n");
-            System.out.print("1. Matricular Aluno\n2. Adicionar Disciplina\n3. Listar Alunos Por Disciplina\n4. Mostrar Infos da Disciplina\n5. Listar Disciplinas\n" +
-                    "6. Mostrar Informação Dos Alunos Por Disciplina\n7. Alterar Info do Aluno\n8. Sair\n\nOpção: ");
+            System.out.print("1. Matricular Aluno\n2. Listar Alunos Por Disciplina\n3. Mostrar Infos da Disciplina\n4. Listar Disciplinas\n" +
+                    "5. Mostrar Informação Dos Alunos Por Disciplina\n6. Alterar Info do Aluno\n7. Sair\n\nOpção: ");
             opcao = sc.nextInt();
             System.out.println();
 
@@ -32,50 +40,28 @@ public class Main {
                     System.out.print("E-mail: ");
                     String email = sc.nextLine();
                     System.out.print("Disciplina do aluno: ");
-                    String disciplinaAluno = sc.nextLine();
+                    String disciplinaAluno = sc.nextLine().toUpperCase();
                     aluno = new Aluno(nome,idade,anoIngresso,email);
-                    for(int i = 0; i < disciplinas.size(); i++){
-                        if(disciplinas.get(i).getNome().equals(disciplinaAluno)){
-                            disciplinas.get(i).cadastrarAluno(aluno);
-                            disciplinas.get(i).setVagas(disciplinas.get(i).getVagas() - 1);
+                    for(Disciplina disciplina : disciplinas){
+                        if(disciplina.getNome().equals(disciplinaAluno)){
+                            disciplina.cadastrarAluno(aluno);
                         }
                     }
                     break;
 
-                    case 2:
-                        System.out.print("Nome da disciplina: ");
-                        sc.nextLine();
-                        String nomeDisciplina = sc.nextLine();
-                        System.out.print("Numero de créditos: ");
-                        int numeroCreditos = sc.nextInt();
-                        sc.nextLine();
-                        System.out.print("Numero de vagas: ");
-                        int numeroVagas = sc.nextInt();
-                        sc.nextLine();
-                        System.out.print("Nome do professor: ");
-                        String nomeProfessor = sc.nextLine();
-                        System.out.print("Idade do professor: ");
-                        int idadeProfessor = sc.nextInt();
-                        sc.nextLine();
-                        System.out.print("Disciplina ministrada: ");
-                        String disciplinaMinistrada = sc.nextLine();
-                        professor = new Professor(nomeProfessor,idadeProfessor,disciplinaMinistrada);
-                        disciplina = new Disciplina(nomeDisciplina,professor,numeroCreditos,numeroVagas);
-                        disciplinas.add(disciplina);
-                        break;
-
-                        case 3:
-                            if(!disciplinas.isEmpty()){
-                                System.out.println("Selecione a disciplina");
-                                for(int i = 0; i < disciplinas.size(); i++){
-                                    System.out.print(disciplinas.get(i).getNome()+ "\n");
-                                }
-                                break;
-                            }
-                            else{
-                                System.out.println("Não há disciplinas cadastradas.");
-                            }
-                            break;
+                case 2:
+                    for(Disciplina disciplina : disciplinas){
+                        System.out.println(disciplina.getNome());
+                    }
+                    System.out.print("Selecione a disciplina: ");
+                    String disciplinaSelecionada = sc.nextLine().toUpperCase();
+                    sc.nextLine();
+                    for(Disciplina disciplina : disciplinas){
+                        if(disciplina.getNome().equals(disciplinaSelecionada)){
+                            disciplina.mostrarAlunos();
+                        }
+                    }
+                    break;
 
             }
         }
